@@ -1,0 +1,95 @@
+#%RAML 1.0
+types:
+  GetDataType:
+    properties:
+      id:
+        example: "2482"
+        type: string
+      name:
+        example: Kartik Koccha
+        type: string
+      email:
+        example: kartik_kocchar@rutherford.io
+        type: string
+      gender:
+        example: female
+        type: string
+      status:
+        example: inactive
+        type: string
+  PostRashmi:
+    properties:
+      UserDetails:
+        properties:
+          post_id:
+            example: "2003"
+            type: string
+          id:
+            example: "1978"
+            type: string
+          name:
+            example: Bhaaswar Pothuvaal III
+            type: string
+  GDT:
+    properties:
+      name:
+        example: Gorakhanatha Chaturvedi
+        type: string
+      Status:
+        example: active
+        type: string
+      Gender:
+        example: Female
+        type: string
+title: GetRashmi
+mediaType:
+  - application/json
+protocols:
+  - HTTP
+/milestone1:
+  get:
+    responses:
+      "201":
+        body:
+          type: object
+    queryParameters:
+      newQueryParameter:
+        type: GetDataType
+  head:
+    responses:
+      "201":
+        body:
+          type: object
+  delete:
+    body:
+      type: GetDataType
+    responses:
+      "201":
+        body:
+          type: GetDataType
+/milestone2:
+  post:
+    queryParameters:
+      id:
+        example: "2003"
+        type: string
+    body:
+      type: PostRashmi
+    responses:
+      "201":
+        body:
+          type: PostRashmi
+  get:
+    queryParameters:
+      rr:
+        type: PostRashmi
+    responses:
+      "201":
+        body:
+          type: PostRashmi
+/milestone3:
+  get:
+    responses:
+      "201":
+        body:
+          type: GDT
